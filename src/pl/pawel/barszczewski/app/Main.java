@@ -11,28 +11,17 @@ public class Main {
         butelka[1] = new Butelka(8);
         butelka[2] = new Butelka(10);
 
-        System.out.println(butelka[0]);
-        System.out.println(butelka[1]);
-        System.out.println(butelka[2]);
 
-        System.out.println();
 
-        butelka[0].wlej(6);
-        butelka[1].wlej(7);
+        butelka[0].fillIn(5);
 
-        butelka[0].wylej(2.5);
-        butelka[1].przelej(3, butelka[0]);
+        butelka[0].transfer(1.5, butelka[1]);
 
-        System.out.println(butelka[0].getIleLitrow());
-        System.out.println(butelka[1].getIleLitrow());
+        System.out.println("butelka 1 => " + butelka[0].getQuantity());
+        System.out.println("butelka 2 => " + butelka[1].getQuantity());
+        System.out.println("butelka 3 => " + butelka[2].getQuantity());
 
-        System.out.println();
-        System.out.println("stan po operacji przelej: ");
 
-        butelka[0].przelej(2, butelka[1]);
-
-        System.out.println(butelka[0].getIleLitrow());
-        System.out.println(butelka[1].getIleLitrow());
 
     }
 

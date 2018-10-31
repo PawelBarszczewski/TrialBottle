@@ -2,44 +2,52 @@ package pl.pawel.barszczewski.app.domain;
 
 public class Butelka {
 
-    private double ileLitrow;                   // określenie ile litrów jest aktualnie w butelce
-    private double maxPojemnosc;                // maksymalna pojemnosc butelki
+    private double quantity;                   // określenie ile litrów jest aktualnie w butelce
+    private double maxCapacity;                // maksymalna pojemnosc butelki
 
     public Butelka(double maxPojemnosc) {
-        this.maxPojemnosc = maxPojemnosc;       // this. => odwołanie do aktualnego stanu
+        this.maxCapacity = maxCapacity;       // this. => odwołanie do aktualnego stanu
     }
 
-    public double getMaxPojemnosc() {
-        return maxPojemnosc;
+    public double getMaxCapacity() {
+        return maxCapacity;
     }
 
-    public double getIleLitrow() {
-        return ileLitrow;
+    public double getQuantity() {
+        return quantity;
     }
 
-    public void wlej(double ilosc) {            // stworzenie metody wlewania do butelki
-        this.ileLitrow += ilosc;
+    public void fillIn(double quantity) {            // stworzenie metody wlewania do butelki
+        this.quantity += quantity;
     }
 
-    public void wylej(double ilosc) {           // stworzenie metody wylewania z butelki
-        this.ileLitrow -= ilosc;
+
+    public boolean fillOut(double quantity) {           // stworzenie metody wylewania z butelki
+        if (quantity < getQuantity())
+            this.quantity -= quantity;
+        else
+            return false;       // w innym wypadku zwróć fałsz
+
+        return true;            // normalnie zwróć prawdę
     }
 
-    public void przelej(double ilosc, Butelka gdziePrzelac) {
-        this.wylej(ilosc);
-        gdziePrzelac.wlej(ilosc);
-
+    public void transfer(double quantity, Butelka where) {
+        if (this.fillOut(quantity))        // jezeli wylej poszlo ok to =>
+        {
+            where.fillIn(quantity);
+        } else
+            System.out.println("za malo");
     }
 
 
     @Override                                   // Generate -> toString()
     public String toString() {
         return "Butelka{" +
-                "max pojemność butli = " + maxPojemnosc +
+                "max pojemność butli = " + maxCapacity +
                 '}';
     }
 
-}
 
+}
 
 
