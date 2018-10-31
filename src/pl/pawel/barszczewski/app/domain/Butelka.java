@@ -31,6 +31,7 @@ public class Butelka {
         return true;            // normalnie zwróć prawdę
     }
 
+
     public void transfer(double quantity, Butelka where) {
         if (this.fillOut(quantity))        // jezeli wylej poszlo ok to =>
         {
