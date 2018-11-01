@@ -17,10 +17,13 @@ public class Butelka {
         return quantity;
     }
 
-    public void fillIn(double quantity) {            // stworzenie metody wlewania do butelki
-        this.quantity += quantity;
+    public boolean fillIn(double quantity) {            // stworzenie metody wlewania do butelki
+        if (quantity + getQuantity() > maxCapacity)
+            this.quantity += quantity;
+        else
+            return false;
+        return true;
     }
-
 
     public boolean fillOut(double quantity) {           // stworzenie metody wylewania z butelki
         if (quantity < getQuantity())
@@ -37,7 +40,7 @@ public class Butelka {
         {
             where.fillIn(quantity);
         } else
-            System.out.println("za malo");
+            System.out.println("errot");
     }
 
 

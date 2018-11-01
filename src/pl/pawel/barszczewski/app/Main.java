@@ -14,7 +14,7 @@ public class Main {
 
         butelka[0].fillIn(5);
 
-        butelka[0].transfer(1.5, butelka[1]);
+        butelka[0].transfer(2.5, butelka[1]);
 
         System.out.println("butelka 1 => " + butelka[0].getQuantity());
         System.out.println("butelka 2 => " + butelka[1].getQuantity());
