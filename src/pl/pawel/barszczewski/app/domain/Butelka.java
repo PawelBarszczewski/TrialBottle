@@ -5,7 +5,7 @@ public class Butelka {
     private double quantity;                   // określenie ile litrów jest aktualnie w butelce
     private double maxCapacity;                // maksymalna pojemnosc butelki
 
-    public Butelka(double maxPojemnosc) {
+    public Butelka(double maxCapacity) {
         this.maxCapacity = maxCapacity;       // this. => odwołanie do aktualnego stanu
     }
 
@@ -17,18 +17,18 @@ public class Butelka {
         return quantity;
     }
 
-    public boolean fillIn(double quantity) {            // stworzenie metody wlewania do butelki
-        if (quantity + getQuantity() > maxCapacity)
+    public void fillIn(double quantity) {            // stworzenie metody wlewania do butelki
+        if ((getQuantity() + quantity) >= getMaxCapacity()) {
+            System.out.println("over max capacity");
+        } else
             this.quantity += quantity;
-        else
-            return false;
-        return true;
     }
 
     public boolean fillOut(double quantity) {           // stworzenie metody wylewania z butelki
-        if (quantity < getQuantity())
+        if (quantity < getQuantity()) {
+
             this.quantity -= quantity;
-        else
+        } else
             return false;       // w innym wypadku zwróć fałsz
 
         return true;            // normalnie zwróć prawdę
@@ -39,19 +39,17 @@ public class Butelka {
         if (this.fillOut(quantity))        // jezeli wylej poszlo ok to =>
         {
             where.fillIn(quantity);
+
         } else
-            System.out.println("errot");
+            System.out.println("full");
     }
 
-
-    @Override                                   // Generate -> toString()
+    @Override
     public String toString() {
         return "Butelka{" +
-                "max pojemność butli = " + maxCapacity +
+                "maxCapacity=" + maxCapacity +
                 '}';
     }
 
 
 }
-
-
