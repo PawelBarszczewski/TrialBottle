@@ -17,14 +17,13 @@ public class Butelka {
         return quantity;
     }
 
-
     public void fillIn(double quantity) {            // stworzenie metody wlewania do butelki
-        if ((getQuantity() + quantity) >= getMaxCapacity()) {
-            System.out.println("over max capacity, max capacity = " + this.getMaxCapacity());
-
-        } else
+        if ((getQuantity() + quantity) <= getMaxCapacity()) {
             this.quantity += quantity;
+        } else
+            System.out.println("over max capacity, max capacity = " + this.getMaxCapacity());
     }
+
 
     public boolean fillOut(double quantity) {           // stworzenie metody wylewania z butelki
         if (quantity < getQuantity()) {
