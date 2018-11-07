@@ -12,13 +12,19 @@ public class Main {
         butelka[2] = new Butelka(10);
 
 
-        butelka[0].fillIn(4.5);
-        butelka[1].fillIn(6.5);
+        butelka[0].fillIn(8);
+        butelka[1].fillIn(3);
 
         System.out.println("butelka 1 -> " + butelka[0].getQuantity());
         System.out.println("butelka 2 -> " + butelka[1].getQuantity());
         System.out.println();
 
+
+        butelka[0].transfer(2.5,butelka[1]);
+
+        System.out.println("butelka 1 -> " + butelka[0].getQuantity());
+        System.out.println("butelka 2 -> " + butelka[1].getQuantity());
+        System.out.println();
 
 
     }

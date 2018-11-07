@@ -4,6 +4,7 @@ public class Butelka {
 
     private double quantity;                   // określenie ile litrów jest aktualnie w butelce
     private double maxCapacity;                // maksymalna pojemnosc butelki
+    private double toFull;                     // ile pozostało do pełnej butelki
 
     public Butelka(double maxCapacity) {
         this.maxCapacity = maxCapacity;       // this. => odwołanie do aktualnego stanu
@@ -17,9 +18,16 @@ public class Butelka {
         return quantity;
     }
 
+    public double getToFull() {
+        return maxCapacity - getQuantity();
+    }
+
     public void fillIn(double quantity) {            // stworzenie metody wlewania do butelki
         if ((getQuantity() + quantity) <= getMaxCapacity()) {
             this.quantity += quantity;
+        } else if ((getQuantity() + quantity) > getMaxCapacity()) {
+            this.quantity += getToFull();
+            System.out.println("fill in to max capacity, " + this.getMaxCapacity());
         } else
             System.out.println("over max capacity, max capacity = " + this.getMaxCapacity());
     }
@@ -36,11 +44,9 @@ public class Butelka {
 
     public void transfer(double quantity, Butelka where) {
         if (this.fillOut(quantity)) {
-
             where.fillIn(quantity);
 
-        } else
-            System.out.println("full");
+        }
     }
 
 
