@@ -1,33 +1,34 @@
 package pl.pawel.barszczewski.app;
 
-import pl.pawel.barszczewski.app.domain.Butelka;
+import pl.pawel.barszczewski.app.domain.Boottle;
 
 public class Main {
 
     public static void main(String[] args) {
-        Butelka[] butelka = new Butelka[3];
+        Boottle[] boottle = new Boottle[3];
 
-        butelka[0] = new Butelka(5);
-        butelka[1] = new Butelka(8);
-        butelka[2] = new Butelka(10);
+        boottle[0] = new Boottle(5);
+        boottle[1] = new Boottle(8);
+        boottle[2] = new Boottle(10);
 
 
-        butelka[0].fillIn(8);
-        butelka[1].fillIn(3);
+        boottle[0].fillIn(5);
+        boottle[1].fillIn(7);
+        boottle[2].fillIn(5);
 
-        System.out.println("butelka 1 -> " + butelka[0].getQuantity());
-        System.out.println("butelka 2 -> " + butelka[1].getQuantity());
+        System.out.println("boottle 1 -> " + boottle[0].getQuantity());
+        System.out.println("boottle 2 -> " + boottle[1].getQuantity());
+        System.out.println("boottle 3 -> " + boottle[0].getQuantity());
+        System.out.println();
         System.out.println();
 
+        boottle[0].transfer(1, boottle[1]);
+        boottle[1].transfer(7, boottle[2]);
 
-        butelka[0].transfer(2.5,butelka[1]);
-
-        System.out.println("butelka 1 -> " + butelka[0].getQuantity());
-        System.out.println("butelka 2 -> " + butelka[1].getQuantity());
+        System.out.println("boottle 1 -> " + boottle[0].getQuantity());
+        System.out.println("boottle 2 -> " + boottle[1].getQuantity());
+        System.out.println("boottle 3 -> " + boottle[2].getQuantity());
         System.out.println();
-
-
     }
 
 }
-
