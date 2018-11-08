@@ -4,7 +4,7 @@ public class Boottle{
 
     private double quantity;                   // określenie ile litrów jest aktualnie w butelce
     private double maxCapacity;                // maksymalna pojemnosc butelki
-    private double toFull;                     // ile pozostało do pełnej butelki
+    private double toFull;
 
     public Boottle(double maxCapacity) {
         this.maxCapacity = maxCapacity;       // this. => odwołanie do aktualnego stanu
