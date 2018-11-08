@@ -1,34 +1,28 @@
 package pl.pawel.barszczewski.app;
 
-import pl.pawel.barszczewski.app.domain.Boottle;
+import pl.pawel.barszczewski.app.domain.Bottle;
 
 public class Main {
 
     public static void main(String[] args) {
-        Boottle[] boottle = new Boottle[3];
+        BootleService bootleService = new BootleService();
 
-        boottle[0] = new Boottle(5);
-        boottle[1] = new Boottle(8);
-        boottle[2] = new Boottle(10);
+        Bottle[] bottle = new Bottle[3];
+
+        bottle[0] = bootleService.createBootle(5);
+        bottle[1] = bootleService.createBootle(8);
+        bottle[2] = bootleService.createBootle(10);
 
 
-        boottle[0].fillIn(5);
-        boottle[1].fillIn(7);
-        boottle[2].fillIn(6);
+        bootleService.fillIn(bottle[0], 6);
 
-        System.out.println("boottle 1 -> " + boottle[0].getQuantity());
-        System.out.println("boottle 2 -> " + boottle[1].getQuantity());
-        System.out.println("boottle 3 -> " + boottle[0].getQuantity());
+
+        System.out.println("bottle 1 -> " + bottle[0].getQuantity());
+        System.out.println("bottle 2 -> " + bottle[1].getQuantity());
+        System.out.println("bottle 3 -> " + bottle[0].getQuantity());
         System.out.println();
-        System.out.println();
 
-        boottle[0].transfer(1, boottle[1]);
-        boottle[1].transfer(5.5, boottle[2]);
 
-        System.out.println("boottle 1 -> " + boottle[0].getQuantity());
-        System.out.println("boottle 2 -> " + boottle[1].getQuantity());
-        System.out.println("boottle 3 -> " + boottle[2].getQuantity());
-        System.out.println();
     }
 
 }
