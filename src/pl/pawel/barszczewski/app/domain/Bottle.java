@@ -16,7 +16,6 @@ public class Bottle {
      *                                          *
      *******************************************/
 
-
     public double getQuantity() {
         return quantity;
     }
@@ -33,12 +32,12 @@ public class Bottle {
         this.maxCapacity = maxCapacity;
     }
 
-    public double getToFull() {
-        return getMaxCapacity() - quantity;
+    public void getToFull() {
+        this.quantity += maxCapacity;
     }
 
 
-    /* before refactor:
+/* before refactor:
     private double quantity;                   // określenie ile litrów jest aktualnie w butelce
     private double maxCapacity;                // maksymalna pojemnosc butelki
     private double toFull;                     // ile pozostało do pełnej butelki

@@ -5,18 +5,28 @@ import pl.pawel.barszczewski.app.domain.Bottle;
 public class BootleService {
 
 
-    public void fillIn(Bottle bottle, double quantity) {
-        bottle.setQuantity(quantity);
-        if (verifyAbowe(bottle, quantity)) {                // shift + ctrl + M =>  Extract Method => refaktoring kodu
+    public void fillIn(Bottle bottle, double quantity) {            // shift + ctrl + M =>  Extract Method => refaktoring kodu
+        // bottle.setQuantity(quantity);
+        if (verifyBelow(bottle, quantity)) {
+            bottle.setQuantity(quantity);
+        } else if (verifyAbowe(bottle, quantity)) {
+
             System.out.println("over max, max capacity = " + bottle.getMaxCapacity());
-        } else if (verifyBelow(bottle, quantity)) {
-            bottle.getToFull();
         }
+    }
+
+    public void fillOut(Bottle bootle, double quantity) {
+        bootle.setQuantity(bootle.getQuantity() - quantity);
     }
 
 
     private boolean verifyAbowe(Bottle bottle, double quantity) {
-        return bottle.getQuantity() + quantity > bottle.getMaxCapacity();
+        if (bottle.getQuantity() + quantity > bottle.getMaxCapacity()) ;
+        {
+            bottle.getToFull();
+            System.out.println("over max capacity " + bottle.getMaxCapacity());
+        }
+        return false;
     }
 
     private boolean verifyBelow(Bottle bottle, double quantity) {
