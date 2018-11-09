@@ -10,7 +10,6 @@ public class BootleService {
         if (verifyBelow(bottle, quantity)) {
             bottle.setQuantity(quantity);
         } else if (verifyAbowe(bottle, quantity)) {
-
             System.out.println("over max, max capacity = " + bottle.getMaxCapacity());
         }
     }
