@@ -14,17 +14,19 @@ public class Main {
         bottle[2] = bootleService.createBootle(10);
 
 
-        bootleService.fillIn(bottle[0], 5.5);
+        bootleService.fillIn(bottle[0], 8.5);
+        bootleService.fillIn(bottle[1], 10.5);
+
 
         System.out.println("bottle 1 -> " + bottle[0].getQuantity());
         System.out.println("bottle 2 -> " + bottle[1].getQuantity());
         System.out.println();
 
 
-        bootleService.fillOut(bottle[0], 2.5);
+      /*  bootleService.fillOut(bottle[0], 5.5);
 
         System.out.println("bottle 1 -> " + bottle[0].getQuantity());
-        System.out.println();
+        System.out.println();*/
 
 
     }

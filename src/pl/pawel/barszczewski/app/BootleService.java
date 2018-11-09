@@ -21,9 +21,8 @@ public class BootleService {
 
 
     private boolean verifyAbowe(Bottle bottle, double quantity) {
-        if (bottle.getQuantity() + quantity > bottle.getMaxCapacity()) ;
-        {
-            bottle.getToFull();
+        if (bottle.getQuantity() + quantity > bottle.getMaxCapacity()) {
+            bottle.setQuantity(bottle.getMaxCapacity());
             System.out.println("over max capacity " + bottle.getMaxCapacity());
         }
         return false;
@@ -32,7 +31,6 @@ public class BootleService {
     private boolean verifyBelow(Bottle bottle, double quantity) {
         return bottle.getQuantity() + quantity <= bottle.getMaxCapacity();
     }
-
 
     public void transfer(Bottle from, Bottle to, double quantity) {
         from.setQuantity(from.getQuantity() - quantity);
