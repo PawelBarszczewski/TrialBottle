@@ -41,13 +41,23 @@ public class BootleService {
         return bottle.getQuantity() - quantity < 0;
     }
 
+    private boolean verifyOver(Bottle bottle, double quantity) {
+        if (bottle.getQuantity() + quantity > bottle.getMaxCapacity()) {
+            bottle.setOverMax(bottle.getMaxCapacity() - quantity);
+        }
+        return false;
+    }
+
+
     public void transfer(Bottle from, Bottle to, double quantity) {
         // if (verifyEmpty(from, quantity)) {
-            fillOut(from, quantity);
+        fillOut(from, quantity);
         if (verifyAbowe(to, quantity)) {
             fillIn(to, quantity);
-        } else System.out.println("error");
+        } else if (verifyOver(to, quantity)) {
+        }
     }
+
 
      /* from.setQuantity(from.getQuantity() - quantity);
         to.setQuantity(to.getQuantity() + quantity); */

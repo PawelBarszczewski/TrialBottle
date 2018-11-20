@@ -5,6 +5,7 @@ public class Bottle {
     private double quantity;                   // określenie ile litrów jest aktualnie w butelce
     private double maxCapacity;                // maksymalna pojemnosc butelki
     private double minCapacity;                     // min pojemoność  = 0
+    private double overMax;
 
     public Bottle(double maxCapacity) {
         this.maxCapacity = maxCapacity;       // this. => odwołanie do aktualnego stanu
@@ -40,6 +41,13 @@ public class Bottle {
         this.minCapacity = minCapacity;
     }
 
+    public double getOverMax() {
+        return overMax;
+    }
+
+    public void setOverMax(double overMax) {
+        this.overMax = overMax;
+    }
 
     @Override
     public String toString() {
