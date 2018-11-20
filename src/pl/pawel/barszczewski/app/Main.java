@@ -15,7 +15,7 @@ public class Main {
 
 
         bootleService.fillIn(bottle[0], 4.5);
-        bootleService.fillIn(bottle[1], 5);
+        bootleService.fillIn(bottle[1], 4);
         bootleService.fillIn(bottle[2], 1.5);
 
         System.out.println("po napelnieniu =>");

@@ -42,17 +42,19 @@ public class BootleService {
     }
 
     public void transfer(Bottle from, Bottle to, double quantity) {
-        fillOut(from, quantity);
-        fillIn(to, quantity);
+        if (verifyEmpty(from, quantity)) {
+            fillOut(from, quantity);
+        } else if (verifyAbowe(to, quantity)) {
+            fillIn(to, quantity);
+        } else System.out.println("error");
+    }
 
      /* from.setQuantity(from.getQuantity() - quantity);
         to.setQuantity(to.getQuantity() + quantity); */
-    }
-
-
 
 
     public Bottle createBootle(double capacity) {
+
         return new Bottle(capacity);
     }
 
