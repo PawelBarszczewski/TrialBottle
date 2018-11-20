@@ -42,9 +42,9 @@ public class BootleService {
     }
 
     public void transfer(Bottle from, Bottle to, double quantity) {
-        if (verifyEmpty(from, quantity)) {
+        // if (verifyEmpty(from, quantity)) {
             fillOut(from, quantity);
-        } else if (verifyAbowe(to, quantity)) {
+        if (verifyAbowe(to, quantity)) {
             fillIn(to, quantity);
         } else System.out.println("error");
     }
