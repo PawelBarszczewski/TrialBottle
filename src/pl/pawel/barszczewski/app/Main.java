@@ -15,7 +15,7 @@ public class Main {
 
 
         bootleService.fillIn(bottle[0], 4.5);
-        bootleService.fillIn(bottle[1], 4);
+        bootleService.fillIn(bottle[1], 3);
         bootleService.fillIn(bottle[2], 1.5);
 
         System.out.println("po napelnieniu =>");
@@ -25,8 +25,8 @@ public class Main {
         System.out.println();
 
 
-        bootleService.transfer(bottle[0], bottle[1], 2.5);
-        //bootleService.transfer(bottle[0], bottle[1], 2);
+        bootleService.transfer(bottle[0], bottle[1], 3.5);
+       // bootleService.fillIn(bottle[1], 0.5);
 
         System.out.println("po operacjach =>");
         System.out.println("bottle 1 -> " + bottle[0].getQuantity());

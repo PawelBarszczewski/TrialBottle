@@ -11,11 +11,10 @@ public class BootleService {
         } else if (verifyAbowe(bottle, quantity)) {
             System.out.println("over max, max capacity = " + bottle.getMaxCapacity());
         }
-        /// ta część do weryfikacji
-        else if ((bottle.getMaxCapacity() - bottle.getQuantity()) < quantity) {
+       /* /// ta część do weryfikacji
+        else if ((bottle.getMaxCapacity() - bottle.getQuantity()) >= quantity) {
             bottle.setQuantity((bottle.getMaxCapacity() - bottle.getQuantity()) + quantity);
-        }
-        // koniec cześci do weryfikacji
+        }*/
         else
             bottle.setQuantity(bottle.getQuantity() + quantity);
         return false;
@@ -51,6 +50,7 @@ public class BootleService {
         // if (verifyEmpty(from, quantity)) {
         fillOut(from, quantity);
         if (verifyAbowe(to, quantity)) {
+        } else if (verifyBelow(to, quantity)) {
             fillIn(to, quantity);
         }
     }
