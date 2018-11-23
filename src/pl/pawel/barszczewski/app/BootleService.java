@@ -10,7 +10,13 @@ public class BootleService {
             bottle.setQuantity(bottle.getQuantity() + quantity);
         } else if (verifyAbowe(bottle, quantity)) {
             System.out.println("over max, max capacity = " + bottle.getMaxCapacity());
-        } else
+        }
+        /// ta część do weryfikacji
+        else if ((bottle.getMaxCapacity() - bottle.getQuantity()) < quantity) {
+            bottle.setQuantity((bottle.getMaxCapacity() - bottle.getQuantity()) + quantity);
+        }
+        // koniec cześci do weryfikacji
+        else
             bottle.setQuantity(bottle.getQuantity() + quantity);
         return false;
     }
@@ -41,26 +47,13 @@ public class BootleService {
         return bottle.getQuantity() - quantity < 0;
     }
 
-    private boolean verifyOver(Bottle bottle, double quantity) {
-        if (bottle.getQuantity() + quantity > bottle.getMaxCapacity()) {
-            bottle.setOverMax(bottle.getMaxCapacity() - quantity);
-        }
-        return false;
-    }
-
-
     public void transfer(Bottle from, Bottle to, double quantity) {
         // if (verifyEmpty(from, quantity)) {
         fillOut(from, quantity);
         if (verifyAbowe(to, quantity)) {
             fillIn(to, quantity);
-        } else if (verifyOver(to, quantity)) {
         }
     }
-
-
-     /* from.setQuantity(from.getQuantity() - quantity);
-        to.setQuantity(to.getQuantity() + quantity); */
 
 
     public Bottle createBootle(double capacity) {

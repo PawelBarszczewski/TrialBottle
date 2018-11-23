@@ -7,6 +7,7 @@ public class Bottle {
     private double minCapacity;                     // min pojemoność  = 0
     private double overMax;
 
+
     public Bottle(double maxCapacity) {
         this.maxCapacity = maxCapacity;       // this. => odwołanie do aktualnego stanu
     }
