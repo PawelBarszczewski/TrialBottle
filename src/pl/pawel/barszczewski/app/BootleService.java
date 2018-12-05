@@ -4,7 +4,6 @@ import pl.pawel.barszczewski.app.domain.Bottle;
 
 public class BootleService {
 
-
     public boolean fillIn(Bottle bottle, double quantity) {            // shift + ctrl + M =>  Extract Method
         if (verifyBelow(bottle, quantity)) {
             bottle.setQuantity(bottle.getQuantity() + quantity);
@@ -14,7 +13,6 @@ public class BootleService {
             bottle.setQuantity(bottle.getQuantity() + quantity);
         return false;
     }
-
 
 
     public void fillOut(Bottle bootle, double quantity) {
@@ -54,7 +52,6 @@ public class BootleService {
             fillIn(to, quantity);
         }
     }
-
 
     public Bottle createBootle(double capacity) {
         return new Bottle(capacity);

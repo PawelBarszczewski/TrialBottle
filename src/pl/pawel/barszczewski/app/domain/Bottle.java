@@ -16,7 +16,7 @@ public class Bottle {
      *                                          *
      *             GETTER and SETTER            *
      *                                          *
-     *******************************************/
+     ********************************************/
 
     public double getQuantity() {
         return quantity;
